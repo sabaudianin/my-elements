@@ -1,4 +1,4 @@
-section {
+.gm-input {
   position: relative;
   min-height: 100vh; /* fallback */
   display: grid;
@@ -8,12 +8,12 @@ section {
 
 /* svh = wysokość nie zmienia się przy paskach lub dvh = wysokość zmienia się razem z paskami. */
 @supports (height: 100svh) {
-  section {
+  .gm-input {
     min-height: 100svh;
   }
 }
 
-section::before {
+.gm-input::before {
   content: '';
   position: absolute;
   inset: -10%; /* większe niż sekcja */
@@ -23,18 +23,18 @@ section::before {
   animation: bg-zoom 15s ease-in-out infinite alternate;
   will-change: transform;
 }
-.glass-container {
+.gm-input .glass-container {
   position: relative;
   z-index: 1;
   padding: 40px;
   border-radius: 20px;
   backdrop-filter: blur(15px);
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.4);
   overflow: hidden;
 }
 
-.glass-container::before {
+.gm-input .glass-container::before {
   content: '';
   position: absolute;
   top: 0;
@@ -47,11 +47,11 @@ section::before {
   pointer-events: none;
 }
 
-.glass-container:hover::before {
+.gm-input .glass-container:hover::before {
   left: 120%;
 }
 
-.glass-container h2 {
+.gm-input .glass-container h2 {
   color: #fff;
   font-size: 28px;
   font-weight: 800;
@@ -61,12 +61,12 @@ section::before {
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.input-group {
+.gm-input .input-group {
   position: relative;
   margin-bottom: 20px;
 }
 
-.input-group input {
+.gm-input .input-group input {
   width: 100%;
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.2);
@@ -79,20 +79,20 @@ section::before {
   transition: all 0.5s ease;
 }
 
-.input-group input::placeholder {
+.gm-input .input-group input::placeholder {
   color: red;
 }
 
-.input-group input:focus {
+.gm-input .input-group input:focus {
   background: rgba(255, 255, 255, 0.3);
 }
 
-.input-group label {
+.gm-input .input-group label {
   color: #000;
   font-weight: 600;
 }
 
-.remember-forgot {
+.gm-input .remember-forgot {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -100,38 +100,38 @@ section::before {
   font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
 }
-.remember-forgot label {
+.gm-input .remember-forgot label {
   display: flex;
   align-items: center;
   cursor: pointer;
 }
 
-.remember-forgot label:hover {
+.gm-input .remember-forgot label:hover {
   color: rgba(255, 255, 255);
 }
 
-.remember-forgot label:has(input:checked) {
+.gm-input .remember-forgot label:has(input:checked) {
   color: #fff;
   font-weight: 700;
 }
 
-.remember-forgot input {
+.gm-input .remember-forgot input {
   margin-right: 4px;
   accent-color: #fff;
 }
 
-.remember-forgot a {
+.gm-input .remember-forgot a {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s linear;
 }
 
-.remember-forgot a:hover {
+.gm-input .remember-forgot a:hover {
   text-decoration: underline;
   color: #fff;
 }
 
-.login-btn {
+.gm-input .login-btn {
   width: 100%;
   padding: 15px;
   background: rgba(255, 255, 255, 0.3);
@@ -144,13 +144,13 @@ section::before {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.login-btn:hover {
+.gm-input .login-btn:hover {
   background: rgba(255, 255, 255, 0.4);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
-.register-link {
+.gm-input .register-link {
   display: flex;
   justify-content: space-evenly;
 
@@ -160,13 +160,13 @@ section::before {
   font-size: 14px;
 }
 
-.register-link a {
+.gm-input .register-link a {
   font-weight: 600;
   text-decoration: none;
   transition: all 0.3s linear;
 }
 
-.register-link a:hover {
+.gm-input .register-link a:hover {
   text-decoration: underline;
   color: #fff;
 }

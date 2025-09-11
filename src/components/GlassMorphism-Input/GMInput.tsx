@@ -1,8 +1,8 @@
-import './style.css';
+import './GmStyle.css';
 
 export const GMInput = () => {
   return (
-    <section>
+    <section className="gm-input">
       <div className="glass-container">
         <h2>Login</h2>
         <form>
