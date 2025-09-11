@@ -1,0 +1,56 @@
+section {
+  position: relative;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+
+section::before,
+section::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url(./sunset.jpg) center / cover no-repeat;
+  transform-origin: center;
+  will-change: transform, opacity;
+}
+
+/* 1 warstwa zoom i znika*/
+section::before {
+  animation: zoomLoop 14s linear infinite;
+}
+/* 2 startuje z delay*/
+section::after {
+  animation: zoomLoop 14s linear infinite;
+  animation-delay: 7s; /*1/2 czasu daje plynnosc */
+}
+
+@keyframes zoomLoop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  45% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+  50.0001% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.6);
+    opacity: 1;
+  }
+}
+
+/* formularz  nad tłem */
+.glass-container {
+  position: relative;
+  z-index: 1;
+}
