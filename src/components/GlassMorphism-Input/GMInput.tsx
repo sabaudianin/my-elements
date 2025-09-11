@@ -1,9 +1,10 @@
 import './style.css';
+
 export const GMInput = () => {
   return (
     <section>
       <div className="glass-container">
-        <h2 className="p-4 text-center text-2xl font-bold">Login</h2>
+        <h2>Login</h2>
         <form>
           <div className="input-group">
             <label>
@@ -14,7 +15,7 @@ export const GMInput = () => {
           <div className="input-group">
             <label>
               Password:
-              <input type="text" name="password" required />
+              <input type="password" name="password" required />
             </label>
           </div>
           <div className="remember-forgot">
