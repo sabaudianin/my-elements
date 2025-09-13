@@ -5,7 +5,7 @@ import NotFound from './pages/NotFound';
 import { LIST } from './elements/ElementsList/ElementsList';
 
 const listRoutes = LIST.map((el) => ({
-  path: `/elements/${el.id}`,
+  path: `/${el.id}`,
   element: el.element,
 }));
 
