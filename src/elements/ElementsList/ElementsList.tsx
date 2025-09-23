@@ -3,6 +3,7 @@ import { GMInput } from '../../components/GlassMorphism-Input/GMInput';
 import { GradientBorder } from '../../components/GradientBorder/GradientBorder';
 import { GradientBorderTailwind } from '../../components/GradientBorder/GradientBorderTailwind';
 import { FlipCard } from '../../components/Card/FlipCard/FlipCard';
+import { DarkLightToggle } from '../../components/DarkLightToggle/DarkLightToggle';
 
 export type List = {
   id: string;
@@ -23,4 +24,5 @@ export const LIST: List[] = [
     element: <GradientBorderTailwind />,
   },
   { id: 'flip-card', title: 'Flip Card', element: <FlipCard /> },
+  { id: 'Dark-Light', title: 'Dark-Light-Toggle', element: <DarkLightToggle /> },
 ];

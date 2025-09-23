@@ -3,9 +3,10 @@ import { useState } from 'react';
 export const FlipCard = () => {
   const [isFliped, setIsFliped] = useState(false);
   const toggleFlip = () => setIsFliped((prev) => !prev);
+
   return (
     <section className="grid min-h-screen place-items-center bg-blue-200 p-2 [perspective:1000px]">
-      <span className="text-xl font-bold">Click Card to find More</span>
+      <span className="text-2xl font-bold text-red-500">Click Card to find More</span>
       <article
         className="relative aspect-[3/4] w-full max-w-sm transform-gpu cursor-pointer rounded-xl font-semibold text-black text-white shadow-[9px_18px_9px_0px_rgba(0,_0,_0,_0.35)] transition-transform duration-700 [transform-style:preserve-3d] data-[flipped=true]:[transform:rotateY(180deg)]"
         data-flipped={isFliped}
