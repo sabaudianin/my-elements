@@ -4,6 +4,7 @@ import { GradientBorder } from '../../components/GradientBorder/GradientBorder';
 import { GradientBorderTailwind } from '../../components/GradientBorder/GradientBorderTailwind';
 import { FlipCard } from '../../components/Card/FlipCard/FlipCard';
 import { DarkLightToggle } from '../../components/DarkLightToggle/DarkLightToggle';
+import { Slider3D } from '../../components/Slider3D/Slider3D';
 
 export type List = {
   id: string;
@@ -25,4 +26,5 @@ export const LIST: List[] = [
   },
   { id: 'flip-card', title: 'Flip Card', element: <FlipCard /> },
   { id: 'Dark-Light', title: 'Dark-Light-Toggle', element: <DarkLightToggle /> },
+  { id: 'Slider-3D', title: 'Slider-3D', element: <Slider3D /> },
 ];
