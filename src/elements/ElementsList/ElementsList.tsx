@@ -5,6 +5,7 @@ import { GradientBorderTailwind } from '../../components/GradientBorder/Gradient
 import { FlipCard } from '../../components/Card/FlipCard/FlipCard';
 import { DarkLightToggle } from '../../components/DarkLightToggle/DarkLightToggle';
 import { Slider3D } from '../../components/Slider3D/Slider3D';
+import { AnimatedBg } from '../../components/AimatedBg/AnimatedBg';
 
 export type List = {
   id: string;
@@ -19,12 +20,9 @@ export const LIST: List[] = [
     title: 'Gradient Border',
     element: <GradientBorder />,
   },
-  {
-    id: 'gradient-border-tailwind',
-    title: 'Gradient Border tailwind',
-    element: <GradientBorderTailwind />,
-  },
+
   { id: 'flip-card', title: 'Flip Card', element: <FlipCard /> },
   { id: 'Dark-Light', title: 'Dark-Light-Toggle', element: <DarkLightToggle /> },
   { id: 'Slider-3D', title: 'Slider-3D', element: <Slider3D /> },
+  { id: 'Animated-Bg', title: 'Animated-Background', element: <AnimatedBg /> },
 ];

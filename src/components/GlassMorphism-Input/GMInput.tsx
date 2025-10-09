@@ -4,13 +4,11 @@ export const GMInput = () => {
   return (
     <main className="gm-input" aria-labelledby="login-title">
       <div className="glass-container" role="region" aria-label="Login form">
-        <h1 id="login-title">Log in</h1>
+        <h1 id="login-title" className="title">
+          Log in
+        </h1>
 
         <form method="post" action="/#" noValidate aria-describedby="login-hint">
-          <p id="login-hint" className="visually-hidden">
-            Use your account credentials to log in.
-          </p>
-
           <div className="input-group">
             <label htmlFor="login-username">Username</label>
             <input

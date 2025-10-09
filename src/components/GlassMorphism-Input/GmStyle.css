@@ -88,7 +88,6 @@
 }
 
 .gm-input .input-group label {
-  color: #000;
   font-weight: 600;
 }
 
@@ -169,6 +168,13 @@
 .gm-input .register-link a:hover {
   text-decoration: underline;
   color: #fff;
+}
+
+.title {
+  text-align: center;
+  font-size: x-large;
+  font-weight: 600;
+  padding: 0.7em;
 }
 
 /* ANIMATIONS */
