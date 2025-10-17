@@ -7,7 +7,7 @@ import { DarkLightToggle } from '../../components/DarkLightToggle/DarkLightToggl
 import { Slider3D } from '../../components/Slider3D/Slider3D';
 import { AnimatedBg } from '../../components/AimatedBg/AnimatedBg';
 import { AnimatedBgTailwindMap } from '../../components/AimatedBg/AnimatedBgTailwindMap';
-
+import { LoadingDots } from '../../components/LoadingDots/LoadingDots';
 import { ProgressBar } from '../../components/ProgressBar/ProgressBar';
 
 export type List = {
@@ -37,5 +37,10 @@ export const LIST: List[] = [
     id: 'ProgressBar',
     title: 'Progress Bar',
     element: <ProgressBar />,
+  },
+  {
+    id: 'LoadingDots',
+    title: 'Loading Dots',
+    element: <LoadingDots />,
   },
 ];
