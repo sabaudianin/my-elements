@@ -1,12 +1,14 @@
 import type { ReactNode } from 'react';
 import { GMInput } from '../../components/GlassMorphism-Input/GMInput';
 import { GradientBorder } from '../../components/GradientBorder/GradientBorder';
-import { GradientBorderTailwind } from '../../components/GradientBorder/GradientBorderTailwind';
+
 import { FlipCard } from '../../components/Card/FlipCard/FlipCard';
 import { DarkLightToggle } from '../../components/DarkLightToggle/DarkLightToggle';
 import { Slider3D } from '../../components/Slider3D/Slider3D';
 import { AnimatedBg } from '../../components/AimatedBg/AnimatedBg';
 import { AnimatedBgTailwindMap } from '../../components/AimatedBg/AnimatedBgTailwindMap';
+
+import { ProgressBar } from '../../components/ProgressBar/ProgressBar';
 
 export type List = {
   id: string;
@@ -30,5 +32,10 @@ export const LIST: List[] = [
     id: 'Animated-Bg-Tailwind',
     title: 'Animated-Background-Tailwind',
     element: <AnimatedBgTailwindMap />,
+  },
+  {
+    id: 'ProgressBar',
+    title: 'Progress Bar',
+    element: <ProgressBar />,
   },
 ];

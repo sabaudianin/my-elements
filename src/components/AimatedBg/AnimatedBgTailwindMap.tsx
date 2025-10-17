@@ -14,7 +14,6 @@ export const AnimatedBgTailwindMap = () => {
   ];
   return (
     <section className="fixed inset-0 h-screen w-full bg-black">
-      SEKCJA
       {DOTS.map((dot, i) => (
         <span
           key={i}
