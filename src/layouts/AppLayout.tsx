@@ -3,7 +3,7 @@ import { LIST } from '../elements/ElementsList/ElementsList';
 
 export default function AppLayout() {
   return (
-    <section className="grid min-h-screen bg-neutral-950 text-white md:grid-cols-[180px_1fr]">
+    <section className="grid min-h-screen w-full bg-neutral-950 text-white md:grid-cols-[180px_1fr]">
       <nav className="absolute top-0 left-0 z-10">
         <NavLink
           to={`/`}
