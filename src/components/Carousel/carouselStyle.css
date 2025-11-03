@@ -1,74 +1,3 @@
-@keyframes tonext {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: 100%;
-  }
-  98% {
-    left: 100%;
-  }
-  99% {
-    left: 0;
-  }
-}
-
-@keyframes tostart {
-  75% {
-    left: 0;
-  }
-  95% {
-    left: -300%;
-  }
-  98% {
-    left: -300%;
-  }
-  99% {
-    left: 0;
-  }
-}
-
-@keyframes snap {
-  96% {
-    scroll-snap-align: center;
-  }
-  97% {
-    scroll-snap-align: none;
-  }
-  99% {
-    scroll-snap-align: none;
-  }
-  100% {
-    scroll-snap-align: center;
-  }
-}
-
-body {
-}
-
-* {
-  box-sizing: border-box;
-  scrollbar-color: transparent transparent; /* thumb and track color */
-  scrollbar-width: 0px;
-}
-
-*::-webkit-scrollbar {
-  width: 0;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: transparent;
-  border: none;
-}
-
-* {
-  -ms-overflow-style: none;
-}
-
 ol,
 li {
   list-style: none;
@@ -78,145 +7,106 @@ li {
 
 .carousel {
   position: relative;
-  padding-top: 75%;
+  aspect-ratio: 16 / 9;
   filter: drop-shadow(0 0 10px #0003);
-  perspective: 100px;
+  overflow: hidden;
 }
 
 .carousel__viewport {
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   display: flex;
-  overflow-x: scroll;
-  counter-reset: item;
-  scroll-behavior: smooth;
+  overflow-x: auto;
   scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE/Edge */
+  scrollbar-width: none; /* Firefox */
 }
-
+.carousel__viewport::-webkit-scrollbar {
+  display: none;
+}
 .carousel__slide {
   position: relative;
   flex: 0 0 100%;
   width: 100%;
-  background-image: url('https://dl.dropboxusercontent.com/scl/fi/mpzrs0s4evjaw4flydkwj/warszawa.jpg?rlkey=ctu3mwrdcxcrowx307aspu20y&st=eild8i9y');
+  scroll-snap-align: center;
   background-position: center;
-  background-size: contain;
-}
-
-.carousel__slide:nth-child(even) {
-  background-image: url('https://dl.dropboxusercontent.com/scl/fi/91z845pxg5u4xslw1c3hr/novotel-parking.png?rlkey=4envhi9716n0gte0vwrgrsxvi&st=gyd4fibi');
   background-size: cover;
 }
 
+/* background s image */
+.carousel__slide:nth-child(1) {
+  background-image: url('https://dl.dropboxusercontent.com/scl/fi/mpzrs0s4evjaw4flydkwj/warszawa.jpg?rlkey=ctu3mwrdcxcrowx307aspu20y&st=eild8i9y');
+}
+.carousel__slide:nth-child(2) {
+  background-image: url('https://dl.dropboxusercontent.com/scl/fi/91z845pxg5u4xslw1c3hr/novotel-parking.png?rlkey=4envhi9716n0gte0vwrgrsxvi&st=gyd4fibi');
+}
+
+/* snapper = klikalny overlay */
 .carousel__snapper {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  scroll-snap-align: center;
+  inset: 0;
 }
 
-@media (hover: hover) {
-  .carousel__snapper {
-    animation-name: tonext, snap;
-    animation-timing-function: ease;
-    animation-duration: 4s;
-    animation-iteration-count: infinite;
-  }
-
-  .carousel__slide:last-child .carousel__snapper {
-    animation-name: tostart, snap;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .carousel__snapper {
-    animation-name: none;
-  }
-}
-
-.carousel:hover .carousel__snapper,
-.carousel:focus-within .carousel__snapper {
-  animation-name: none;
-}
-
-.carousel__navigation {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-
-.carousel__navigation-list,
-.carousel__navigation-item {
-  display: inline-block;
-}
-
-.carousel__navigation-button {
-  display: inline-block;
-  width: 1.5rem;
-  height: 1.5rem;
-  background-color: #333;
-  background-clip: content-box;
-  border: 0.25rem solid transparent;
-  border-radius: 50%;
-  font-size: 0;
-  transition: transform 0.1s;
-}
-
-.carousel::before,
-.carousel::after,
+/* Strzałki */
 .carousel__prev,
 .carousel__next {
   position: absolute;
-  top: 0;
-  margin-top: 37.5%;
-  width: 4rem;
-  height: 4rem;
-  transform: translateY(-50%);
+  top: 50%;
+  translate: 0 -50%;
+  width: 3rem;
+  height: 3rem;
   border-radius: 50%;
-  font-size: 0;
-  outline: 0;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  font-size: 1.25rem;
 }
-
-.carousel::before,
 .carousel__prev {
-  left: -1rem;
+  left: 0.5rem;
 }
-
-.carousel::after,
 .carousel__next {
-  right: -1rem;
+  right: 0.5rem;
+}
+.carousel__prev::before {
+  content: '⬅️';
+}
+.carousel__next::before {
+  content: '➡️';
 }
 
-.carousel::before {
-  content: '◀️';
-  z-index: 1;
-
-  background-size: 1.5rem 1.5rem;
-  background-repeat: no-repeat;
-  background-position: center center;
-  color: #fff;
-  font-size: 2.5rem;
-  line-height: 4rem;
-  text-align: center;
-  pointer-events: none;
+/*  Kropki */
+.carousel__navigation {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.5rem;
+  display: grid;
+  place-items: center;
+}
+.carousel__navigation-list {
+  display: flex;
+  gap: 0.5rem;
+}
+.carousel__navigation-button {
+  display: block;
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.4);
+  text-indent: -9999px;
+  overflow: hidden;
+  outline: none;
+}
+.carousel__navigation-button:focus,
+.carousel__navigation-button:hover {
+  background: rgba(0, 0, 0, 0.7);
 }
 
-.carousel::after {
-  content: '▶️';
-  z-index: 1;
-
-  background-size: 1.5rem 1.5rem;
-  background-repeat: no-repeat;
-  background-position: center center;
-  color: #fff;
-  font-size: 2.5rem;
-  line-height: 4rem;
-  text-align: center;
-  pointer-events: none;
+@media (prefers-reduced-motion: reduce) {
+  .carousel__viewport {
+    scroll-behavior: auto;
+  }
 }
