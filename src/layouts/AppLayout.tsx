@@ -35,8 +35,7 @@ export default function AppLayout() {
               key={el.id}
               to={`/${el.id}`}
               className={({ isActive }) =>
-                `block rounded-lg px-3 py-2 transition hover:bg-white/10 ${
-                  isActive ? 'bg-white/15 ring-1 ring-white/20' : ''
+                `block rounded-lg px-3 py-2 transition hover:bg-white/10 ${isActive ? 'bg-white/15 ring-1 ring-white/20' : ''
                 }`
               }
             >

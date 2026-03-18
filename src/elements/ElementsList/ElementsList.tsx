@@ -10,6 +10,7 @@ import { AnimatedBgTailwindMap } from '../../components/AimatedBg/AnimatedBgTail
 import { LoadingDots } from '../../components/LoadingDots/LoadingDots';
 import { ProgressBar } from '../../components/ProgressBar/ProgressBar';
 import { Carousel } from '../../components/Carousel/Carousel';
+import { Odometer } from "../../components/odometer/Odometer"
 
 export type List = {
   id: string;
@@ -48,5 +49,10 @@ export const LIST: List[] = [
     id: 'Carousel',
     title: 'Carousel',
     element: <Carousel />,
+  },
+  {
+    id: 'Odometer',
+    title: 'Odometer',
+    element: <Odometer />,
   },
 ];

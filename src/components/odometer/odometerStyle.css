@@ -1,0 +1,135 @@
+#amount {
+  --amt: attr(value number);
+  .digit {
+    --si: sibling-index();
+    display: none;
+    &::after {
+      display: block;
+      --digit: mod(round(down, var(--amt) / (1000000 / pow(10, var(--i)))), 10);
+      counter-set: n max(var(--n), var(--digit));
+      animation:
+        linear 1s,
+        linear 0.11s calc(9 - var(--digit));
+      content: counter(n);
+    }
+    &:nth-child(-n + 2)::after {
+      --i: var(--si) - 1;
+    }
+    &:where(:nth-child(3 of .digit), :nth-child(4 of .digit))::after {
+      --i: var(--si) - 2;
+    }
+    &:nth-last-child(-n + 3)::after {
+      --i: var(--si) - 3;
+    }
+    &:nth-of-type(even)::after {
+      animation-name: count, slideUp;
+    }
+    &:nth-of-type(odd)::after {
+      animation-name: count, slideDown;
+    }
+  }
+}
+@property --n {
+  syntax: '<integer>';
+  inherits: false;
+  initial-value: 0;
+}
+@keyframes count {
+  from {
+    --n: 9;
+  }
+  to {
+    --n: 0;
+  }
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+body:has(:checked) #amount > * {
+  display: block;
+  visibility: visible;
+}
+
+@layer base, visual;
+
+@layer visual {
+  #amount,
+  #button {
+    width: 260px;
+    border-radius: 6px;
+  }
+  #amount {
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow: clip;
+    font:
+      bold 3em 'Courier New',
+      Courier,
+      monospace;
+    .separator {
+      visibility: hidden;
+    }
+  }
+  #button {
+    height: 40px;
+    container-type: size;
+    > * {
+      position: absolute;
+      width: inherit;
+      height: inherit;
+    }
+    input {
+      appearance: none;
+      margin: 0;
+      border-radius: inherit;
+      background-color: rgb(250, 250, 251);
+      box-shadow:
+        2px 2px 6px rgb(230, 230, 231),
+        -2px -2px 6px rgb(250, 250, 251),
+        inset 2px 2px 3px #fff;
+      #button:has(&:active) {
+        color: grey;
+      }
+    }
+    label {
+      font-size: 1.2em;
+      line-height: 100cqh;
+      text-align: center;
+      cursor: pointer;
+    }
+  }
+  h1 {
+    margin: 0;
+    font-weight: 500;
+    align-self: self-end;
+  }
+}
+
+@layer base {
+  body {
+    height: 100vh;
+    margin: 0;
+    display: grid;
+    gap: 25px;
+    place-content: center;
+    user-select: none;
+    -webkit-user-select: none;
+    cursor: default;
+    font: 14px 'poppins';
+  }
+}
